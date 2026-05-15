@@ -26,7 +26,9 @@
 
         .page-header { margin-bottom: 2.5rem; animation: slideDown 0.5s ease-out; }
         .page-title {
-            font-size: 2.2rem; font-weight: 800; color: #fff; margin: 0;
+            font-size: 2.2rem; font-weight: 800;
+            color: var(--text-main); /* ИСПРАВЛЕНО: было #fff */
+            margin: 0;
             display: flex; align-items: center; gap: 1rem;
         }
         .page-title i { color: var(--accent-primary); text-shadow: 0 0 15px rgba(0, 102, 255, 0.4); }
@@ -49,27 +51,37 @@
         }
 
         .stat-label { font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin-bottom: 0.5rem; }
-        .stat-value { font-size: 2.5rem; font-weight: 800; color: #fff; margin: 0; text-shadow: 0 0 20px rgba(var(--stat-rgb), 0.3); }
+        .stat-value {
+            font-size: 2.5rem; font-weight: 800;
+            color: var(--text-main); /* ИСПРАВЛЕНО: было #fff */
+            margin: 0; text-shadow: 0 0 20px rgba(var(--stat-rgb), 0.3);
+        }
 
         /* Панель быстрых действий */
         .action-card {
-            background: rgba(0, 0, 0, 0.3); border: 1px solid var(--glass-border);
+            background: var(--glass-bg); /* ИСПРАВЛЕНО: был жесткий черный цвет */
+            border: 1px solid var(--glass-border);
             border-radius: 1.25rem; padding: 2rem;
         }
-        .action-card-title { color: #fff; font-weight: 700; margin-bottom: 1.5rem; font-size: 1.25rem; }
+        .action-card-title {
+            color: var(--text-main); /* ИСПРАВЛЕНО: было #fff */
+            font-weight: 700; margin-bottom: 1.5rem; font-size: 1.25rem;
+        }
 
         .btn-action-glow {
             display: flex; align-items: center; gap: 1rem;
             width: 100%; padding: 1rem 1.5rem;
             background: var(--glass-bg); border: 1px solid var(--glass-border);
-            color: #fff; font-weight: 500; border-radius: 1rem;
+            color: var(--text-main); /* ИСПРАВЛЕНО: было #fff */
+            font-weight: 500; border-radius: 1rem;
             transition: all 0.3s ease; text-decoration: none;
         }
         .btn-action-glow i { font-size: 1.25rem; color: var(--accent-primary); transition: all 0.3s ease; }
 
         .btn-action-glow:hover {
             background: rgba(0, 102, 255, 0.1); border-color: rgba(0, 102, 255, 0.3);
-            color: #fff; transform: translateX(5px); box-shadow: 0 0 20px rgba(0, 102, 255, 0.1);
+            color: var(--accent-primary); /* ИСПРАВЛЕНО: было #fff */
+            transform: translateX(5px); box-shadow: 0 0 20px rgba(0, 102, 255, 0.1);
         }
         .btn-action-glow:hover i { text-shadow: 0 0 10px rgba(0, 102, 255, 0.5); transform: scale(1.1); }
 

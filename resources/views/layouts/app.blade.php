@@ -70,67 +70,144 @@
         html[data-theme="light"] .btn-close { filter: none; }
 
         /* ============================================
-           ЯДЕРНАЯ ЗАЩИТА СВЕТЛОЙ ТЕМЫ
-           Убивает любой белый текст в основном контенте
+           ТОТАЛЬНАЯ АДАПТАЦИЯ СВЕТЛОЙ ТЕМЫ
            ============================================ */
 
-        /* 1. Находим вообще ВСЕ текстовые элементы и красим в темный (кроме кнопок, бейджей и алертов) */
-        html[data-theme="light"] main *:not([class*="btn"]):not([class*="btn"] *):not(.badge):not(.badge *):not(.alert):not(.alert *):not(i) {
+        /* 1. Жестко убиваем белый текст во всех возможных классах */
+        html[data-theme="light"] .text-white,
+        html[data-theme="light"] .text-white-50,
+        html[data-theme="light"] .text-light,
+        html[data-theme="light"] .link-light,
+        html[data-theme="light"] a.text-white,
+        html[data-theme="light"] a.text-white-50,
+        html[data-theme="light"] [style*="color: white"],
+        html[data-theme="light"] [style*="color: #fff"],
+        html[data-theme="light"] [style*="color: #ffffff"] {
             color: #0f172a !important;
-            text-shadow: none !important;
         }
 
-        /* 2. Для мелкого текста, лейблов форм и подписей делаем цвет чуть светлее (тёмно-серый) */
-        html[data-theme="light"] main .text-muted,
-        html[data-theme="light"] main .text-muted *,
-        html[data-theme="light"] main .small,
-        html[data-theme="light"] main small,
-        html[data-theme="light"] main .text-white-50,
-        html[data-theme="light"] main .text-white-50 *,
-        html[data-theme="light"] main .opacity-50,
-        html[data-theme="light"] main .opacity-75 {
+        /* 2. АДМИН-ПАНЕЛЬ: БОКОВОЕ МЕНЮ И НАВИГАЦИЯ */
+        html[data-theme="light"] .nav-link:not(.active),
+        html[data-theme="light"] .list-group-item:not(.active) {
+            color: #475569 !important;
+        }
+        html[data-theme="light"] .nav-link:not(.active):hover,
+        html[data-theme="light"] .list-group-item:not(.active):hover {
+            color: #0066ff !important;
+            background-color: rgba(0, 102, 255, 0.05) !important;
+        }
+        html[data-theme="light"] .nav-pills .nav-link.active,
+        html[data-theme="light"] .list-group-item.active {
+            background-color: #0066ff !important;
+            color: #ffffff !important;
+        }
+
+        /* 3. АДМИН-ПАНЕЛЬ: ТАБЛИЦЫ */
+        html[data-theme="light"] table,
+        html[data-theme="light"] .table {
+            --bs-table-color: #0f172a;
+            --bs-table-bg: transparent;
+            --bs-table-border-color: #cbd5e1;
+            color: #0f172a !important;
+        }
+        html[data-theme="light"] th,
+        html[data-theme="light"] td {
+            border-color: #cbd5e1 !important;
+            color: #0f172a !important;
+        }
+        html[data-theme="light"] .table-dark,
+        html[data-theme="light"] .text-bg-dark {
+            --bs-table-bg: #f1f5f9;
+            --bs-table-color: #0f172a;
+            background-color: #f1f5f9 !important;
+            color: #0f172a !important;
+        }
+
+        /* 4. КНОПКА "НАЗАД" И ДРУГИЕ БЕЛЫЕ КНОПКИ */
+        html[data-theme="light"] .btn-outline-light,
+        html[data-theme="light"] .btn-light,
+        html[data-theme="light"] .btn-back-glass {
+            color: #0f172a !important;
+            border-color: #cbd5e1 !important;
+            background-color: #ffffff !important;
+        }
+        html[data-theme="light"] .btn-outline-light:hover,
+        html[data-theme="light"] .btn-back-glass:hover {
+            background-color: #e2e8f0 !important;
+            color: #0066ff !important;
+            border-color: #0066ff !important;
+        }
+
+        /* 5. Мелкий текст, лейблы и подписи */
+        html[data-theme="light"] .text-muted,
+        html[data-theme="light"] .small,
+        html[data-theme="light"] small,
+        html[data-theme="light"] .opacity-50,
+        html[data-theme="light"] .opacity-75 {
             color: #475569 !important;
             opacity: 1 !important;
         }
 
-        /* 3. Возвращаем цветные акценты (иконки, успехи, ошибки) */
-        html[data-theme="light"] main .text-primary { color: #0066ff !important; }
-        html[data-theme="light"] main .text-success { color: #059669 !important; }
-        html[data-theme="light"] main .text-warning { color: #d97706 !important; }
-        html[data-theme="light"] main .text-danger { color: #e11d48 !important; }
-        html[data-theme="light"] main .text-info { color: #0284c7 !important; }
-
-        /* Ссылки (которые не кнопки) */
-        html[data-theme="light"] main a:not([class*="btn"]) {
-            color: #0066ff !important;
+        /* 6. Заголовки */
+        html[data-theme="light"] h1, html[data-theme="light"] h2, html[data-theme="light"] h3,
+        html[data-theme="light"] h4, html[data-theme="light"] h5, html[data-theme="light"] h6,
+        html[data-theme="light"] .page-title, html[data-theme="light"] .service-title {
+            color: #0f172a !important;
+            text-shadow: none !important;
         }
 
-        /* 4. Принудительно отбеливаем все карточки, фоны, формы и модальные окна */
+        /* 7. Фоны обычных карточек, сайдбаров и модалок */
         html[data-theme="light"] .glass-panel,
         html[data-theme="light"] .accordion-item,
         html[data-theme="light"] .sticky-booking-card,
         html[data-theme="light"] .modal-content,
-        html[data-theme="light"] .card,
+        html[data-theme="light"] .card:not(a),
         html[data-theme="light"] .org-box,
         html[data-theme="light"] .review-card,
         html[data-theme="light"] .bg-dark,
         html[data-theme="light"] .bg-black,
         html[data-theme="light"] .bg-secondary,
-        html[data-theme="light"] [style*="background: rgba(0, 0, 0"],
-        html[data-theme="light"] [style*="background: rgba(0,0,0"] {
+        html[data-theme="light"] [style*="background: rgba(0, 0, 0"] {
             background-color: #ffffff !important;
             background: #ffffff !important;
-            border-color: #e2e8f0 !important;
+            border-color: #cbd5e1 !important;
+            color: #0f172a !important;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03) !important;
         }
 
-        /* 5. Инпуты, формы, селекты, плейсхолдеры */
+        /* 8. ФИКС КАРТОЧЕК-ССЫЛОК (ДАШБОРДЫ) */
+        html[data-theme="light"] a.card,
+        html[data-theme="light"] a.glass-panel,
+        html[data-theme="light"] a.bg-dark,
+        html[data-theme="light"] a.text-decoration-none.text-white {
+            background-color: #ffffff !important;
+            color: #0f172a !important;
+            border: 1px solid #cbd5e1 !important;
+            text-decoration: none !important;
+        }
+
+        html[data-theme="light"] a.card:hover,
+        html[data-theme="light"] a.glass-panel:hover,
+        html[data-theme="light"] a.bg-dark:hover {
+            background-color: #f8fafc !important;
+            color: #0066ff !important;
+            border-color: #0066ff !important;
+            box-shadow: 0 8px 20px rgba(0, 102, 255, 0.1) !important;
+        }
+
+        html[data-theme="light"] a.card *,
+        html[data-theme="light"] a.glass-panel *,
+        html[data-theme="light"] a.bg-dark * {
+            color: inherit !important;
+            text-shadow: none !important;
+        }
+
+        /* 9. Инпуты и формы */
         html[data-theme="light"] .glass-input,
         html[data-theme="light"] .glass-textarea,
         html[data-theme="light"] .form-control,
         html[data-theme="light"] .form-select {
             background-color: #ffffff !important;
-            background: #ffffff !important;
             border: 1px solid #cbd5e1 !important;
             color: #0f172a !important;
             color-scheme: light !important;
@@ -142,22 +219,12 @@
             box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.1) !important;
         }
 
-        /* Плейсхолдеры внутри форм */
-        html[data-theme="light"] ::placeholder {
-            color: #64748b !important;
-            opacity: 1 !important;
-        }
-        html[data-theme="light"] select option {
-            background-color: #ffffff !important;
-            color: #0f172a !important;
-        }
-        html[data-theme="light"] input[type="file"]::file-selector-button {
-            background-color: #f1f5f9 !important;
-            color: #0f172a !important;
-            border: 1px solid #cbd5e1 !important;
-        }
+        /* Плейсхолдеры */
+        html[data-theme="light"] ::placeholder { color: #64748b !important; opacity: 1 !important; }
+        html[data-theme="light"] select option { background-color: #ffffff !important; color: #0f172a !important; }
+        html[data-theme="light"] input[type="file"]::file-selector-button { background-color: #f1f5f9 !important; color: #0f172a !important; border: 1px solid #cbd5e1 !important; }
 
-        /* 6. Страница Уведомлений (отделяем прочитанные от непрочитанных) */
+        /* 10. Страница Уведомлений */
         html[data-theme="light"] .bg-light,
         html[data-theme="light"] .bg-opacity-10 {
             background-color: #f1f5f9 !important;
@@ -165,7 +232,7 @@
             border-color: #e2e8f0 !important;
         }
 
-        /* 7. Генератор слотов */
+        /* 11. Генератор слотов */
         html[data-theme="light"] .slot-chip,
         html[data-theme="light"] .slot-btn {
             background-color: #f8fafc !important;
@@ -179,6 +246,30 @@
             background: #e0e7ff !important;
             border-color: #0066ff !important;
             color: #0066ff !important;
+        }
+
+        /* 12. ДАШБОРД АДМИНА И ОРГАНИЗАЦИИ (ПЛАШКИ И КНОПКИ ДЕЙСТВИЙ) */
+        html[data-theme="light"] .stat-card,
+        html[data-theme="light"] .action-card {
+            background-color: #ffffff !important;
+            border-color: #cbd5e1 !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03) !important;
+        }
+        html[data-theme="light"] .stat-value,
+        html[data-theme="light"] .action-card-title {
+            color: #0f172a !important;
+            text-shadow: none !important;
+        }
+        html[data-theme="light"] .btn-action-glow {
+            background-color: #ffffff !important;
+            border-color: #cbd5e1 !important;
+            color: #0f172a !important;
+        }
+        html[data-theme="light"] .btn-action-glow:hover {
+            background-color: #f8fafc !important;
+            border-color: #0066ff !important;
+            color: #0066ff !important;
+            box-shadow: 0 8px 20px rgba(0, 102, 255, 0.1) !important;
         }
 
         /* Свечение на фоне */
