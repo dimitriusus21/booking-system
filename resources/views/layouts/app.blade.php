@@ -33,8 +33,8 @@
         html[data-theme="light"] * {
             --bg-primary: #f8fafc !important;
             --text-main: #0f172a !important;
-            --text-muted: #475569 !important;
-            --text-description: #334155 !important;
+            --text-muted: #334155 !important;
+            --text-description: #1e293b !important;
             --glass-bg: #ffffff !important;
             --glass-border: rgba(0, 0, 0, 0.15) !important;
         }
@@ -73,23 +73,22 @@
            ТОТАЛЬНАЯ АДАПТАЦИЯ СВЕТЛОЙ ТЕМЫ
            ============================================ */
 
-        /* 1. Жестко убиваем белый текст во всех возможных классах */
+        /* 1. Жестко убиваем белый текст во всех возможных классах (ФИКС ГРАДИЕНТОВ) */
         html[data-theme="light"] .text-white,
         html[data-theme="light"] .text-white-50,
         html[data-theme="light"] .text-light,
         html[data-theme="light"] .link-light,
-        html[data-theme="light"] a.text-white,
-        html[data-theme="light"] a.text-white-50,
         html[data-theme="light"] [style*="color: white"],
         html[data-theme="light"] [style*="color: #fff"],
         html[data-theme="light"] [style*="color: #ffffff"] {
             color: #0f172a !important;
+            -webkit-text-fill-color: #0f172a !important;
         }
 
         /* 2. АДМИН-ПАНЕЛЬ: БОКОВОЕ МЕНЮ И НАВИГАЦИЯ */
         html[data-theme="light"] .nav-link:not(.active),
         html[data-theme="light"] .list-group-item:not(.active) {
-            color: #475569 !important;
+            color: #334155 !important;
         }
         html[data-theme="light"] .nav-link:not(.active):hover,
         html[data-theme="light"] .list-group-item:not(.active):hover {
@@ -100,6 +99,7 @@
         html[data-theme="light"] .list-group-item.active {
             background-color: #0066ff !important;
             color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
         }
 
         /* 3. АДМИН-ПАНЕЛЬ: ТАБЛИЦЫ */
@@ -130,29 +130,38 @@
             color: #0f172a !important;
             border-color: #cbd5e1 !important;
             background-color: #ffffff !important;
+            -webkit-text-fill-color: #0f172a !important;
         }
         html[data-theme="light"] .btn-outline-light:hover,
         html[data-theme="light"] .btn-back-glass:hover {
             background-color: #e2e8f0 !important;
             color: #0066ff !important;
+            -webkit-text-fill-color: #0066ff !important;
             border-color: #0066ff !important;
         }
 
-        /* 5. Мелкий текст, лейблы и подписи */
+        /* 5. Мелкий текст, абзацы, лейблы (СДЕЛАНО ТЕМНЕЕ И КОНТРАСТНЕЕ) */
         html[data-theme="light"] .text-muted,
         html[data-theme="light"] .small,
         html[data-theme="light"] small,
         html[data-theme="light"] .opacity-50,
-        html[data-theme="light"] .opacity-75 {
-            color: #475569 !important;
+        html[data-theme="light"] .opacity-75,
+        html[data-theme="light"] .lead,
+        html[data-theme="light"] p {
+            color: #1e293b !important;
             opacity: 1 !important;
+            -webkit-text-fill-color: #1e293b !important;
         }
 
-        /* 6. Заголовки */
+        /* 6. Заголовки ВСЕХ уровней */
         html[data-theme="light"] h1, html[data-theme="light"] h2, html[data-theme="light"] h3,
         html[data-theme="light"] h4, html[data-theme="light"] h5, html[data-theme="light"] h6,
+        html[data-theme="light"] .display-1, html[data-theme="light"] .display-2,
+        html[data-theme="light"] .display-3, html[data-theme="light"] .display-4,
         html[data-theme="light"] .page-title, html[data-theme="light"] .service-title {
             color: #0f172a !important;
+            background: none !important;
+            -webkit-text-fill-color: #0f172a !important;
             text-shadow: none !important;
         }
 
@@ -199,6 +208,7 @@
         html[data-theme="light"] a.glass-panel *,
         html[data-theme="light"] a.bg-dark * {
             color: inherit !important;
+            -webkit-text-fill-color: inherit !important;
             text-shadow: none !important;
         }
 
@@ -210,6 +220,7 @@
             background-color: #ffffff !important;
             border: 1px solid #cbd5e1 !important;
             color: #0f172a !important;
+            -webkit-text-fill-color: #0f172a !important;
             color-scheme: light !important;
         }
         html[data-theme="light"] .glass-input:focus,
@@ -220,8 +231,8 @@
         }
 
         /* Плейсхолдеры */
-        html[data-theme="light"] ::placeholder { color: #64748b !important; opacity: 1 !important; }
-        html[data-theme="light"] select option { background-color: #ffffff !important; color: #0f172a !important; }
+        html[data-theme="light"] ::placeholder { color: #64748b !important; opacity: 1 !important; -webkit-text-fill-color: #64748b !important; }
+        html[data-theme="light"] select option { background-color: #ffffff !important; color: #0f172a !important; -webkit-text-fill-color: #0f172a !important; }
         html[data-theme="light"] input[type="file"]::file-selector-button { background-color: #f1f5f9 !important; color: #0f172a !important; border: 1px solid #cbd5e1 !important; }
 
         /* 10. Страница Уведомлений */
@@ -258,18 +269,77 @@
         html[data-theme="light"] .stat-value,
         html[data-theme="light"] .action-card-title {
             color: #0f172a !important;
+            -webkit-text-fill-color: #0f172a !important;
             text-shadow: none !important;
         }
         html[data-theme="light"] .btn-action-glow {
             background-color: #ffffff !important;
             border-color: #cbd5e1 !important;
             color: #0f172a !important;
+            -webkit-text-fill-color: #0f172a !important;
         }
         html[data-theme="light"] .btn-action-glow:hover {
             background-color: #f8fafc !important;
             border-color: #0066ff !important;
             color: #0066ff !important;
+            -webkit-text-fill-color: #0066ff !important;
             box-shadow: 0 8px 20px rgba(0, 102, 255, 0.1) !important;
+        }
+
+        /* 13. ФИКС ГЛАВНОЙ СТРАНИЦЫ (HERO SECTION И КАРТОЧКИ) */
+        html[data-theme="light"] .badge:not(.bg-danger):not(.bg-success):not(.bg-primary) {
+            background-color: rgba(0, 102, 255, 0.1) !important;
+            color: #0066ff !important;
+            -webkit-text-fill-color: #0066ff !important;
+        }
+
+        html[data-theme="light"] .feature-card,
+        html[data-theme="light"] .glass-card,
+        html[data-theme="light"] .hero-card {
+            background-color: #ffffff !important;
+            border: 1px solid #cbd5e1 !important;
+            color: #0f172a !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04) !important;
+        }
+        html[data-theme="light"] .feature-card *,
+        html[data-theme="light"] .glass-card * {
+            color: inherit !important;
+            -webkit-text-fill-color: inherit !important;
+        }
+        html[data-theme="light"] .feature-card p,
+        html[data-theme="light"] .glass-card p {
+            color: #1e293b !important;
+            -webkit-text-fill-color: #1e293b !important;
+        }
+        html[data-theme="light"] .feature-card i,
+        html[data-theme="light"] .glass-card i {
+            color: #0066ff !important;
+            -webkit-text-fill-color: #0066ff !important;
+        }
+
+        /* === СПЕЦИАЛЬНЫЙ ФИКС ДЛЯ КНОПКИ "СТАТЬ ИСПОЛНИТЕЛЕМ" === */
+        html[data-theme="light"] .hero-btn-secondary {
+            background-color: #ffffff !important;
+            border: 2px solid #475569 !important; /* Толстая выразительная обводка */
+            color: #0f172a !important;
+            -webkit-text-fill-color: #0f172a !important;
+            font-weight: 600 !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+        }
+        html[data-theme="light"] .hero-btn-secondary i {
+            color: #0f172a !important;
+            -webkit-text-fill-color: #0f172a !important;
+        }
+        html[data-theme="light"] .hero-btn-secondary:hover {
+            background-color: #0f172a !important; /* При наведении заливается темным цветом */
+            border-color: #0f172a !important;
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important; /* Белый текст на темном фоне */
+            box-shadow: 0 8px 25px rgba(15, 23, 42, 0.2) !important;
+        }
+        html[data-theme="light"] .hero-btn-secondary:hover i {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
         }
 
         /* Свечение на фоне */
